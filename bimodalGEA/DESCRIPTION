@@ -1,0 +1,12 @@
+Package: bimodalGEA
+Type: Package
+Title: bimodality-based Gene Expression data analysis
+Version: 0.1
+Date: 2010-05-21
+Author: Antonio, Fabio Di Narzo
+Maintainer: Antonio, Fabio Di Narzo <AntonioFabio.DiNarzo@isb-sib.ch>
+Description: bimodality-based Gene Expression data analysis
+Depends: mclust
+License: GPL v3
+LazyLoad: yes
+Packaged: 2010-05-21 14:35:19 UTC; ubuntu
