@@ -47,7 +47,6 @@ mm <- tapply(X[,1], Y[,1], mean)
 stopifnot(all(names(mm) \%in\% c("high", "low")))
 stopifnot(mm['high'] >= mm['low'])
 }
-stopifnot(all(names(mm) %in% c("high", "low")))
 
 }
 \keyword{ manip }
