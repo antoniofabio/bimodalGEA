@@ -31,6 +31,8 @@ getPowerScore <- function(pow) function(pp) Rsquare(pp) * (prod(pp$pro)/0.25)^po
 
 meansDistanceScore <- function(pp) diff(abs(pp$mean))
 
+minProportion <- function(pp) min(pp$pro)
+
 scoreFuns <- list(BI=BI.wang,
                   Mscore=Mscore,
                   R2=Rsquare,
@@ -44,7 +46,36 @@ scoreFuns <- list(BI=BI.wang,
 ## - Rsquare: R square index
 ## - meansDistanceScore: absolute distance between mixture means
 ## Returns an score value for each gene
-geneScores <- function(X, F=Rsquare) apply(X, 2, Compose(F, mixPar, mixFit))
+geneScores <- function(X, ...) {
+  funs <- list(...)
+  if(length(funs) == 0) {
+    funs$F=Rsquare
+  }
+  fits <- apply(X, 2, Compose(mixPar, mixFit))
+  ans <- sapply(funs, function(F) sapply(fits, F))
+  rownames(ans) <- colnames(X)
+  return(ans)
+}
+
+bimodalityScores <- function(X) {
+  ans <- as.data.frame(geneScores(X, Rsquare=Rsquare,
+                                  meansDistance=meansDistanceScore,
+                                  proportion=minProportion))
+  ans <- cbind(gene=rownames(ans), ans)
+  ans <- transform(ans, gene=as.character(gene))
+  return(ans)
+}
+
+bimodalityFilter <- function(X,
+                             meansDistance=2,
+                             proportion=0.01,
+                             Rsquare=0) {
+  mD <- meansDistance
+  pr <- proportion
+  rsq <- Rsquare
+  with(bimodalityScores(X),
+       gene[(meansDistance >= mD) & (proportion >= pr) & (Rsquare >= rsq)])
+}
 
 ## remove uninteresting covariates effects from gene expression data
 ## X: gene expression matrix

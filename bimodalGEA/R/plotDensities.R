@@ -28,6 +28,11 @@
 ## Scores and columns of X are matched by 'names'.
 plotTopDensities <- function(X, score, NR=4, NC=7,
                              PAGG=ceiling(length(score)/(NR*NC))) {
+  if(is.matrix(score)) {
+    nms <- rownames(score)
+    score <- as.vector(score)
+    names(score) <- nms
+  }
   X <- X[,names(score)]
   xi <- order(score, decreasing=TRUE)
   par(mfrow=c(NR,NC), mar=c(2,2,4.2,1))

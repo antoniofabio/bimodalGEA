@@ -3,6 +3,7 @@
 \alias{BI.wang}
 \alias{Mscore}
 \alias{meansDistanceScore}
+\alias{minProportion}
 \alias{scoreFuns}
 \title{
   Bi-modality score functions

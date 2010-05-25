@@ -1,0 +1,7 @@
+25/05/2010	Antonio F. Di Narzo <antonio.fabio@gmail.com>
+	* add utility bimodalityScore and bimodalityFilter functions
+	* add ability to compute multiple indexes at once, without
+		refitting the mixture
+
+version 0.1: 21/05/2010
+
