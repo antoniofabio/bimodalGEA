@@ -1,4 +1,5 @@
-25/05/2010	Antonio F. Di Narzo <antonio.fabio@gmail.com>
+version 0.2: 
+	* add plotTopJitters & friends plotting functions
 	* add 'xlim' option to plotTopDensities, with sensible default
 	* add 'rug' option to plotTopDensities
 	* add plotMixDensity: more flexible w.r.t. plotTopDensities

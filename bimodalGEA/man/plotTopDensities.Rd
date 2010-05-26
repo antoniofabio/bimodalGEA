@@ -9,14 +9,14 @@ plotMixDensity(x, score, lwd=2, col="darkgray", ...)
 plotTopDensities(X, score,
   NR = 4, NC = 7,
   PAGG = ceiling(length(score)/(NR * NC)),
-  addRug=FALSE)
+  xlim=range(X), addRug=FALSE)
 }
 \arguments{
   \item{x}{gene expression vector}
   \item{score}{pre-computed score (for \code{plotMixDensity}) or a named
     vector of score values (for \code{plotTopDensities}). Vector names must match
     \code{X} column names}
-  \item{lwd, col, ...}{further arguments to \code{plot}}
+  \item{lwd, col, xlim, ...}{further arguments to \code{plot}}
   \item{X}{gene expression matrix (genes in columns)}
   \item{NR}{number of figure rows}
   \item{NC}{number of figure columns}
