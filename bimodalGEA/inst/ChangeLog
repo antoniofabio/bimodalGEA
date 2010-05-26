@@ -1,4 +1,6 @@
 25/05/2010	Antonio F. Di Narzo <antonio.fabio@gmail.com>
+	* add plotMixDensity: more flexible w.r.t. plotTopDensities
+ 	 (which	uses it)
 	* add utility bimodalityScore and bimodalityFilter functions
 	* add ability to compute multiple indexes at once, without
 		refitting the mixture

@@ -23,6 +23,16 @@
   })
 }
 
+plotMixDensity <- function(x, score, lwd=2, col="darkgray", ...) {
+  d <- density(x)
+  plot(d, lwd=lwd, col=col, ...)
+  .plotMixParameters(mixFit(x))
+  if(!missing(score)) {
+    score.txt <- paste("score=",format(score, digits=2))
+    mtext(score.txt, line=-1, adj=0.99, cex=0.7)
+  }
+}
+
 ## Plot densities of gene expressions (columns of X)
 ## sorted by scores. Superimpose mixture estimates.
 ## Scores and columns of X are matched by 'names'.
@@ -37,12 +47,9 @@ plotTopDensities <- function(X, score, NR=4, NC=7,
   xi <- order(score, decreasing=TRUE)
   par(mfrow=c(NR,NC), mar=c(2,2,4.2,1))
   for(i in seq_len(PAGG*NR*NC)) {
-    yi <- X[,xi[i]]
-    symb <- colnames(X)[xi[i]]
-    di <- density(yi)
-    plot(di, main=symb, lwd=2, col="darkgray")
-    .plotMixParameters(mixFit(yi))
-    score.txt <- paste("score=",format(score[xi[i]], digits=2))
-    mtext(score.txt, line=-1, adj=0.99, cex=0.7)
+    plotMixDensity(X[,xi[i]],
+                   score=score[xi[i]],
+                   main=colnames(X)[xi[i]],
+                   xlab="", ylab="")
   }
 }
