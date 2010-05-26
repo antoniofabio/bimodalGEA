@@ -37,7 +37,8 @@ plotMixDensity <- function(x, score, lwd=2, col="darkgray", ...) {
 ## sorted by scores. Superimpose mixture estimates.
 ## Scores and columns of X are matched by 'names'.
 plotTopDensities <- function(X, score, NR=4, NC=7,
-                             PAGG=ceiling(length(score)/(NR*NC))) {
+                             PAGG=ceiling(length(score)/(NR*NC)),
+                             xlim=range(X), addRug=FALSE) {
   if(is.matrix(score)) {
     nms <- rownames(score)
     score <- as.vector(score)
@@ -46,10 +47,13 @@ plotTopDensities <- function(X, score, NR=4, NC=7,
   X <- X[,names(score)]
   xi <- order(score, decreasing=TRUE)
   par(mfrow=c(NR,NC), mar=c(2,2,4.2,1))
-  for(i in seq_len(PAGG*NR*NC)) {
-    plotMixDensity(X[,xi[i]],
-                   score=score[xi[i]],
-                   main=colnames(X)[xi[i]],
-                   xlab="", ylab="")
+  for(i in seq_len(min(NCOL(X), PAGG*NR*NC))) {
+    symbol <- colnames(X)[xi[i]]
+    plotMixDensity(X[,symbol],
+                   score=score[symbol],
+                   main=symbol,
+                   xlab="", ylab="", xlim=xlim)
+    if(addRug)
+      histSpike(X[,symbol], col="darkgray", add=TRUE)
   }
 }

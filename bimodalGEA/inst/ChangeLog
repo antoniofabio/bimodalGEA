@@ -1,4 +1,6 @@
 25/05/2010	Antonio F. Di Narzo <antonio.fabio@gmail.com>
+	* add 'xlim' option to plotTopDensities, with sensible default
+	* add 'rug' option to plotTopDensities
 	* add plotMixDensity: more flexible w.r.t. plotTopDensities
  	 (which	uses it)
 	* add utility bimodalityScore and bimodalityFilter functions

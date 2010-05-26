@@ -8,7 +8,8 @@ plotMixDensity(x, score, lwd=2, col="darkgray", ...)
 
 plotTopDensities(X, score,
   NR = 4, NC = 7,
-  PAGG = ceiling(length(score)/(NR * NC)))
+  PAGG = ceiling(length(score)/(NR * NC)),
+  addRug=FALSE)
 }
 \arguments{
   \item{x}{gene expression vector}
@@ -20,6 +21,7 @@ plotTopDensities(X, score,
   \item{NR}{number of figure rows}
   \item{NC}{number of figure columns}
   \item{PAGG}{number of pages to be produced}
+  \item{addRug}{calls \code{\link{histSpike}} on every plot}
 }
 \details{
   Plot the kernel-estimated distribution density of the top-scoring
@@ -37,7 +39,7 @@ set.seed(1234)
 X <- matrix(rnorm(400), 100)
 colnames(X) <- letters[seq_len(NCOL(X))]
 scores <- geneScores(X)
-plotTopDensities(X, scores, NR=1, NC=2, PAGG=1)
+plotTopDensities(X, scores, NR=1, NC=2, addRug=TRUE)
 
 ## A more fine-grained control:
 par(mar=c(2,2,4.2,1), mfrow=c(2,1))
