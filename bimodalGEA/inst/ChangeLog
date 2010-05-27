@@ -1,4 +1,6 @@
-version 0.2: 
+version 0.2:
+	* add fisherCorrelation fun for evaluating association
+	  between categorical variables
 	* add plotTopJitters & friends plotting functions
 	* add 'xlim' option to plotTopDensities, with sensible default
 	* add 'rug' option to plotTopDensities
