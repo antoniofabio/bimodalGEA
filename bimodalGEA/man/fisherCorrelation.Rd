@@ -1,5 +1,4 @@
 \name{fisherCorrelation}
-\name{fisherCorrelations}
 \alias{fisherCorrelation}
 \alias{fisherCorrelations}
 \title{
