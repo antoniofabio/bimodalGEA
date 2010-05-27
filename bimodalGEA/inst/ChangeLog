@@ -1,5 +1,6 @@
 version 0.2:
-	* add fisherCorrelation fun for evaluating association
+	* add plotTopMosaics func
+	* add fisherCorrelation func for evaluating association
 	  between categorical variables
 	* add plotTopJitters & friends plotting functions
 	* add 'xlim' option to plotTopDensities, with sensible default
