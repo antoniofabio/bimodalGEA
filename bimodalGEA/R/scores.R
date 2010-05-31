@@ -2,13 +2,6 @@
 ## Bi-modality based gene expression analysis
 ## Antonio F. Di Narzo, 20 May 2010
 ##
-.compose <- function(f,g) {
-  force(f)
-  force(g)
-  function(x) f(g(x))
-}
-Compose <- function(...) Reduce(.compose, list(...))
-
 mixFit <- function(x) Mclust(data=x, G=2, modelNames="E")
 mixPar <- function(m) m$parameters
 .mixDiscretize <- function(x) {
