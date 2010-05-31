@@ -6,8 +6,8 @@ factorSort <- function(fac) {
 }
 
 .compose <- function(f,g) {
-  force(f)
-  force(g)
+  f <- match.fun(f)
+  g <- match.fun(g)
   function(x) f(g(x))
 }
 Compose <- function(...) Reduce(.compose, list(...))

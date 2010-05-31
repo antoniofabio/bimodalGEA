@@ -26,6 +26,9 @@ sumOfSquares <- Compose(sum, square)
 sumOfSquares(1:3)
 ## [1] 14
 
+Compose("!", any, is.na)(c(1, NA, 2))
+## [1] FALSE
+
 \dontshow{
 stopifnot(sumOfSquares(1:3) == 14)
 }
