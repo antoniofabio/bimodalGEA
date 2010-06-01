@@ -42,11 +42,16 @@ scoreFuns <- list(BI=BI.wang,
 geneScores <- function(X, ...) {
   funs <- list(...)
   if(length(funs) == 0) {
-    funs$F=Rsquare
+    funs$F <- Rsquare
   }
   fits <- apply(X, 2, Compose(mixPar, mixFit))
   ans <- sapply(funs, function(F) sapply(fits, F))
-  rownames(ans) <- colnames(X)
+  if(NCOL(ans)==1) {
+    ans <- as.vector(ans)
+    names(ans) <- colnames(X)
+  } else {
+    rownames(ans) <- colnames(X)
+  }
   return(ans)
 }
 

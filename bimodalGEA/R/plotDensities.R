@@ -33,8 +33,8 @@ plotMixDensity <- function(x, score, lwd=2, col="darkgray", ...) {
   }
 }
 
-## Plot densities of gene expressions (columns of X)
-## sorted by scores. Superimpose mixture estimates.
+## Plot densities of gene expressions (columns of X).
+## Superimpose mixture estimates.
 ## Scores and columns of X are matched by 'names'.
 plotTopDensities <- function(X, score, NR=4, NC=7,
                              PAGG=ceiling(length(score)/(NR*NC)),
@@ -45,7 +45,7 @@ plotTopDensities <- function(X, score, NR=4, NC=7,
     names(score) <- nms
   }
   X <- X[,names(score)]
-  xi <- order(score, decreasing=TRUE)
+  xi <- seq_along(score)
   par(mfrow=c(NR,NC), mar=c(2,2,4.2,1))
   for(i in seq_len(min(NCOL(X), PAGG*NR*NC))) {
     symbol <- colnames(X)[xi[i]]

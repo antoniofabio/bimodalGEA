@@ -26,7 +26,7 @@ plotTopJitters <- function(X, score, NR=4, NC=7,
     names(score) <- nms
   }
   X <- X[,names(score)]
-  xi <- order(score, decreasing=TRUE)
+  xi <- seq_along(score)
   par(mfrow=c(NR,NC), mar=c(2,2,4.2,1))
   for(i in seq_len(min(NCOL(X), PAGG*NR*NC))) {
     symb <- colnames(X)[xi[i]]

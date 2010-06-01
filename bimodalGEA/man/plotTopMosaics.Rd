@@ -32,6 +32,6 @@ set.seed(1234)
 x1 <- rnorm(1000)
 x2 <- rnorm(1000)
 x3 <- rnorm(1000)
-plotTopMosaics(cbind(x1, x2,x3), 1, 3)
+plotTopMosaics(cbind(x1, x2, x3), 1, 3)
 }
 \keyword{ hplot }

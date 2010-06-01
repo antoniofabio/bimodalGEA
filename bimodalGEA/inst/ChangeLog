@@ -1,4 +1,7 @@
 version 0.2:
+	* improve plotTopDensities & friends: no more automatic sorting
+          by score. It's actually much more flexible to let the user
+	  specify the preferred ordering
 	* improve barplots utilities man pages
 	* add some more cross-references
 	* improve Compose func: now uses 'match.fun'
@@ -9,10 +12,10 @@ version 0.2:
 	* add 'xlim' option to plotTopDensities, with sensible default
 	* add 'rug' option to plotTopDensities
 	* add plotMixDensity: more flexible w.r.t. plotTopDensities
- 	 (which	uses it)
+ 	  (which uses it)
 	* add utility bimodalityScore and bimodalityFilter functions
 	* add ability to compute multiple indexes at once, without
-		refitting the mixture
+	  refitting the mixture
 
 version 0.1: 21/05/2010
 

@@ -39,14 +39,14 @@ plotTopDensities(X, score,
 set.seed(1234)
 X <- matrix(rnorm(400), 100)
 colnames(X) <- letters[seq_len(NCOL(X))]
-scores <- geneScores(X)
+scores <- sort(geneScores(X))
 plotTopDensities(X, scores, NR=1, NC=2, addRug=TRUE)
 
 ## A more fine-grained control:
 par(mar=c(2,2,4.2,1), mfrow=c(2,1))
-plotMixDensity(X[,'a'], scores['a',], main="gene 'a'", xlab="", ylab="",
+plotMixDensity(X[,'a'], scores['a'], main="gene 'a'", xlab="", ylab="",
   xlim=range(X))
-plotMixDensity(X[,'b'], scores['b',], main="gene 'b'", xlab="", ylab="",
+plotMixDensity(X[,'b'], scores['b'], main="gene 'b'", xlab="", ylab="",
   col="pink", xlim=range(X))
 }
 \keyword{ hplot }
