@@ -7,4 +7,4 @@ Description: bimodality-based Gene Expression data analysis
 Depends: mclust, Hmisc
 License: GPL v3
 LazyLoad: yes
-Version: 0.2-0
+Version: 0.2

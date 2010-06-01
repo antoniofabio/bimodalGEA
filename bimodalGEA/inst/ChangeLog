@@ -1,4 +1,4 @@
-version 0.2:
+version 0.2: 1/06/2010
 	* add utility 'disambiguate' func
 	* add utility 'geneNamesPrettifier' func
 	* improve plotTopDensities & friends: no more automatic sorting
