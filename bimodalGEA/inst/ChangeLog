@@ -1,4 +1,5 @@
 version 0.2:
+	* add utility 'geneNamesPrettifier' func
 	* improve plotTopDensities & friends: no more automatic sorting
           by score. It's actually much more flexible to let the user
 	  specify the preferred ordering
