@@ -32,7 +32,8 @@ plotTopDensities(X, score,
   Antonio, Fabio Di Narzo
 }
 \seealso{
-  \code{\link{geneScores}}
+  \code{\link{geneScores}}, \code{\link{plotTopJitters}},
+  \code{\link{crossBarPlot}}
 }
 \examples{
 set.seed(1234)

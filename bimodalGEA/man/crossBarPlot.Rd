@@ -9,7 +9,6 @@ crossBarPlot(x, fac, xlab = "", legendTitle = NULL, legend.text = TRUE,
   beside = TRUE, ...)
 crossBarPlotStrata(strata, x, fac, main, ...)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x}{gene expression values}
   \item{fac}{factor}
@@ -25,8 +24,16 @@ crossBarPlotStrata(strata, x, fac, main, ...)
 \author{
   Antonio, Fabio Di Narzo
 }
-
+\seealso{
+  \code{\link{plotTopMosaics}}, \code{\link{plotTopDensities}},
+  \code{\link{plotTopJitters}}
+}
 \examples{
-## TODO
+set.seed(1234)
+f <- sample(c('m','f'), size=100, replace=TRUE)
+x <- rnorm(100, sample(c(-2, 2), size=100, replace=TRUE))
+crossBarPlot(x, f)
+
+crossBarPlot(x, f, legendTitle="sex")
 }
 \keyword{ hplot }

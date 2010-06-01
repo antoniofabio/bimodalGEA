@@ -1,4 +1,6 @@
 version 0.2:
+	* improve barplots utilities man pages
+	* add some more cross-references
 	* improve Compose func: now uses 'match.fun'
 	* add plotTopMosaics func
 	* add fisherCorrelation func for evaluating association
