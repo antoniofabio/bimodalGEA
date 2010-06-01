@@ -1,5 +1,6 @@
 \name{geneNamesPrettifier}
 \alias{geneNamesPrettifier}
+\alias{disambiguate}
 \title{fix genes naming schemes}
 \description{
   fix genes naming schemes
