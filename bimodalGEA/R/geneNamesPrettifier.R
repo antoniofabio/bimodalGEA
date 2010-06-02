@@ -4,7 +4,8 @@
 ## by adding the geneId identifier when necessary
 ##
 geneNamesPrettifier <- function(geneSymbols, geneIds) {
-  ans <- geneSymbols
+  ans <- as.character(geneSymbols)
+  geneIds <- as.character(geneIds)
   isEmpty <- ans==""
   ans[isEmpty] <- geneIds[isEmpty]
   smb <- table(ans)

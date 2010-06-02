@@ -1,4 +1,6 @@
 version 0.3:
+	* improve geneNamesPrettifier: coerce arguments to character
+	  oherwise factor variables may cause a lot of confusion...
 
 version 0.2: 1/06/2010
 	* add utility 'disambiguate' func
