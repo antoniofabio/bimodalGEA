@@ -18,3 +18,20 @@ isUnique <- function(x) {
 
 Intersect <- function(lst) Reduce(intersect, lst)
 Union <- function(lst) Reduce(union, lst)
+
+outerColumns <- function(A, B=A, FUN) {
+  FUN <- match.fun(FUN)
+  if(is.vector(A) && (NROW(A) == NROW(B))) {
+    ans <- outerColumns(A=matrix(A), B=B, FUN=FUN)
+    return(structure(as.vector(ans), names=colnames(ans)))
+  }
+  stopifnot(is.matrix(A) && is.matrix(B))
+  ans <- t(apply(A, 2, function(a) {
+    apply(B, 2, function(b) {
+      FUN(a, b)
+    })
+  }))
+  rownames(ans) <- colnames(A)
+  colnames(ans) <- colnames(B)
+  return(ans)
+}
