@@ -1,4 +1,5 @@
 version 0.3:
+	* add utility 'Intersect' and 'Union' functions
 	* add utility 'isUnique' function
 	* improve geneNamesPrettifier: coerce arguments to character
 	  oherwise factor variables may cause a lot of confusion...

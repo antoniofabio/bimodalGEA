@@ -15,3 +15,6 @@ Compose <- function(...) Reduce(.compose, list(...))
 isUnique <- function(x) {
   all(!is.na(x)) && (length(unique(x)) == length(x))
 }
+
+Intersect <- function(lst) Reduce(intersect, lst)
+Union <- function(lst) Reduce(union, lst)
