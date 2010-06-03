@@ -11,3 +11,7 @@ factorSort <- function(fac) {
   function(x) f(g(x))
 }
 Compose <- function(...) Reduce(.compose, list(...))
+
+isUnique <- function(x) {
+  all(!is.na(x)) && (length(unique(x)) == length(x))
+}
