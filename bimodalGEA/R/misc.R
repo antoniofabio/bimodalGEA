@@ -21,9 +21,13 @@ Union <- function(lst) Reduce(union, lst)
 
 outerColumns <- function(A, B=A, FUN) {
   FUN <- match.fun(FUN)
-  if(is.vector(A) && (NROW(A) == NROW(B))) {
-    ans <- outerColumns(A=matrix(A), B=B, FUN=FUN)
-    return(structure(as.vector(ans), names=colnames(ans)))
+  if(is.vector(A)) {
+    if(NROW(A) == NROW(B)) {
+      ans <- outerColumns(A=matrix(A), B=B, FUN=FUN)
+      return(structure(as.vector(ans), names=colnames(ans)))
+    } else {
+      stop("arguments 'A' and 'B' should be matrices")
+    }
   }
   stopifnot(is.matrix(A) && is.matrix(B))
   ans <- t(apply(A, 2, function(a) {

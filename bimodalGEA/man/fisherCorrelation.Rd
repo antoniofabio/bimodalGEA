@@ -37,9 +37,9 @@ fisherCorrelation(a, b)
 # [1] 0.6879004
 
 fisherCorrelations(cbind(a, b))
-#          a         b
-#a        NA 0.6879004
-#b 0.6879004        NA
+#             a            b
+#a 1.627380e-29 6.879004e-01
+#b 6.879004e-01 1.072886e-29
 
 fisherCorrelations(a, cbind(a, b))
 #           a            b 
