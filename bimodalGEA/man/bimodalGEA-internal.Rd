@@ -8,6 +8,7 @@
 \alias{varTot}
 \alias{varWithin}
 \alias{delta}
+\alias{.fisherCorrelationMatrix}
 \description{Internal bimodalGEA objects.}
 \details{These are not to be called by the user.}
 \keyword{internal}

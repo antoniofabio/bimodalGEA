@@ -5,24 +5,25 @@
 Fisher test between two categorical variables
 }
 \description{
-  Fisher test between two categorical variables
+  Fisher test between two categorical variables (or groups of them)
 }
 \usage{
-fisherCorrelation(xa, xb)
-fisherCorrelations(X.discrete)
+fisherCorrelation(x, y)
+fisherCorrelations(X, Y)
 }
 \arguments{
-  \item{xa, xb}{two variables vectors}
-  \item{X.discrete}{vertical matrix of discrete variables}
-}
-\details{
-  \code{fisherCorrelations} returns the square matrix of the pairwise
-  tests p-values.
+  \item{x, y}{two discrete variables vectors}
+  \item{X}{vertical matrix of discrete variables}
+  \item{Y}{vertical matrix of discrete variables}
 }
 \value{
-  \code{fiherCorrelation} returns the Fisher test p-value.
-  \code{fiherCorrelations} returns a square matrix containing all the
-  pairwise tests p-values (\code{NA} on the main diagonal).
+  \code{fisherCorrelation} returns the Fisher test p-value between two
+  categorical variables.
+
+  \code{fisherCorrelations} returns a matrix containing all the
+  pairwise tests p-values. If \code{Y} is missing, returns the symmetric
+  square matrix of all the pairwise tests p-values (\code{NA} on the
+  main diagonal).
 }
 \author{
   Antonio, Fabio Di Narzo
@@ -39,5 +40,9 @@ fisherCorrelations(cbind(a, b))
 #          a         b
 #a        NA 0.6879004
 #b 0.6879004        NA
+
+fisherCorrelations(a, cbind(a, b))
+#           a            b 
+#1.627380e-29 6.879004e-01 
 }
 \keyword{ htest }
