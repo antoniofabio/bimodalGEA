@@ -1,4 +1,5 @@
 version 0.3:
+	* fix plotTopDensities and plotTopJitters examples
 	* add utility 'outerColumns' func
 	* improve, polish and clean the 'fisherCorrelations' func
 	* add utility 'Intersect' and 'Union' functions
