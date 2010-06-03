@@ -39,7 +39,7 @@ plotTopDensities(X, score,
 set.seed(1234)
 X <- matrix(rnorm(400), 100)
 colnames(X) <- letters[seq_len(NCOL(X))]
-scores <- sort(geneScores(X))
+scores <- sort(geneScores(X), decreasing=TRUE)
 plotTopDensities(X, scores, NR=1, NC=2, addRug=TRUE)
 
 ## A more fine-grained control:

@@ -37,7 +37,7 @@ plotTopJitters(X, score, NR=4, NC=7,
 set.seed(1234)
 X <- matrix(rnorm(400), 100)
 colnames(X) <- letters[seq_len(NCOL(X))]
-scores <- sort(geneScores(X))
+scores <- sort(geneScores(X), decreasing=TRUE)
 plotTopJitters(X, scores, NR=1, NC=2)
 }
 \keyword{ hplot }
