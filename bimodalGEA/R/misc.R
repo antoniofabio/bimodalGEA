@@ -29,7 +29,8 @@ outerColumns <- function(A, B=A, FUN) {
       stop("arguments 'A' and 'B' should be matrices")
     }
   }
-  stopifnot(is.matrix(A) && is.matrix(B))
+  isBiDimensional <- function(X) length(dim(X)==2)
+  stopifnot(isBiDimensional(A) && isBiDimensional(B))
   ans <- t(apply(A, 2, function(a) {
     apply(B, 2, function(b) {
       FUN(a, b)

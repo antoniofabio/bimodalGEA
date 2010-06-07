@@ -25,7 +25,13 @@ outerColumns(A, B, "*")
 
 outerColumns(1, B, "*")
 # c d e 
-# 1 2 3 
+# 1 2 3
+
+## arguments can be dataframes too:
+outerColumns(as.data.frame(A), as.data.frame(B), "*")
+#   c d e
+# a 1 2 3
+# b 2 4 6
 }
 \keyword{ programming }
 \keyword{ utilities }
