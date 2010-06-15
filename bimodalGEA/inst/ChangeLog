@@ -1,4 +1,7 @@
-version 0.3:
+version 0.4:
+	* move general utility functions in a separate package
+
+version 0.3: 14/06/2010
 	* fix plotTopDensities and plotTopJitters examples
 	* add utility 'outerColumns' func
 	* improve, polish and clean the 'fisherCorrelations' func

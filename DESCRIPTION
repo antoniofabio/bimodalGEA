@@ -4,7 +4,7 @@ Title: bimodality-based Gene Expression data analysis
 Author: Antonio, Fabio Di Narzo
 Maintainer: Antonio, Fabio Di Narzo <AntonioFabio.DiNarzo@isb-sib.ch>
 Description: bimodality-based Gene Expression data analysis
-Depends: mclust, Hmisc
+Depends: mclust, Hmisc, dmisc
 License: GPL v3
 LazyLoad: yes
 Version: 0.4-0
