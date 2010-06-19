@@ -14,17 +14,3 @@ geneNamesPrettifier <- function(geneSymbols, geneIds) {
                          as.character(geneIds[duplId]))
   return(ans)
 }
-
-disambiguate <- function(x, disambiguator=seq_along, sep=" ") {
-  stopifnot(is.vector(x))
-  stopifnot(all(!is.na(x)))
-  disambiguator <- match.fun(disambiguator)
-  x <- as.character(x)
-  tbl <- table(x)
-  duplicated <- names(tbl)[tbl>1]
-  for(nm in duplicated) {
-    inm <- x==nm
-    x[inm] <- paste(x[inm], disambiguator(x[inm]), sep=sep)
-  }
-  return(x)
-}
