@@ -4,6 +4,8 @@
 \alias{Mscore}
 \alias{meansDistanceScore}
 \alias{minProportion}
+\alias{lowProportion}
+\alias{highProportion}
 \alias{scoreFuns}
 \title{
   Bi-modality score functions
@@ -16,6 +18,8 @@ Rsquare(pp)
 BI.wang(pp)
 Mscore(pp)
 meansDistanceScore(pp)
+lowProportion(pp)
+highProportion(pp)
 scoreFuns
 }
 %- maybe also 'usage' for other objects documented here.

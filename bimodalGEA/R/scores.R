@@ -1,6 +1,6 @@
 ##
 ## Bi-modality based gene expression analysis
-## Antonio F. Di Narzo, 20 May 2010
+## Antonio F. Di Narzo, 22 November 2010
 ##
 mixFit <- function(x) Mclust(data=x, G=2, modelNames="E")
 mixPar <- function(m) m$parameters
@@ -25,6 +25,9 @@ getPowerScore <- function(pow) function(pp) Rsquare(pp) * (prod(pp$pro)/0.25)^po
 meansDistanceScore <- function(pp) diff(abs(pp$mean))
 
 minProportion <- function(pp) min(pp$pro)
+
+lowProportion <- function(pp) pp$pro[which.min(pp$mean)]
+highProportion <- function(pp) pp$pro[which.max(pp$mean)]
 
 scoreFuns <- list(BI=BI.wang,
                   Mscore=Mscore,
@@ -55,10 +58,16 @@ geneScores <- function(X, ...) {
   return(ans)
 }
 
-bimodalityScores <- function(X) {
-  ans <- as.data.frame(geneScores(X, Rsquare=Rsquare,
-                                  meansDistance=meansDistanceScore,
-                                  proportion=minProportion))
+bimodalityScores <- function(X, lowProportion=FALSE) {
+  if(lowProportion) {
+    ans <- as.data.frame(geneScores(X, Rsquare=Rsquare,
+                                    meansDistance=meansDistanceScore,
+                                    proportion=lowProportion))
+  } else {
+    ans <- as.data.frame(geneScores(X, Rsquare=Rsquare,
+                                    meansDistance=meansDistanceScore,
+                                    proportion=minProportion))
+  }
   ans <- cbind(gene=rownames(ans), ans)
   ans <- transform(ans, gene=as.character(gene))
   return(ans)
