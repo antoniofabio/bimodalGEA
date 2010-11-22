@@ -58,8 +58,8 @@ geneScores <- function(X, ...) {
   return(ans)
 }
 
-bimodalityScores <- function(X, lowProportion=FALSE) {
-  if(lowProportion) {
+bimodalityScores <- function(X, lowProp=FALSE) {
+  if(lowProp) {
     ans <- as.data.frame(geneScores(X, Rsquare=Rsquare,
                                     meansDistance=meansDistanceScore,
                                     proportion=lowProportion))

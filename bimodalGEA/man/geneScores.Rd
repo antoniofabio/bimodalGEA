@@ -12,7 +12,7 @@
   custom thresholds.
 }
 \usage{
-bimodalityScores(X, lowProportion=FALSE)
+bimodalityScores(X, lowProp=FALSE)
 bimodalityFilter(X, meansDistance=2, proportion=0.01, Rsquare=0)
 
 geneScores(X, ...)
@@ -21,7 +21,7 @@ strataScores(X, F, strata)
 }
 \arguments{
   \item{X}{ gene expression matrix (genes are in columns) }
-  \item{lowProportion}{ should the proportion of the \sQuote{low mean}
+  \item{lowProp}{ should the proportion of the \sQuote{low mean}
     group reported? If \code{FALSE}, the \sQuote{minimum} proportion
     is reported instead (default: FALSE) }
   \item{meansDistance}{ min allowed distance between mixture means }
@@ -90,6 +90,7 @@ geneScores(X,
 
 ## bimodality-based filtering of genes:
 bimodalityScores(X)
+bimodalityScores(X, lowProp=TRUE)
 bimodalityFilter(X, 0.1, 0.1)
 }
 \keyword{ cluster }

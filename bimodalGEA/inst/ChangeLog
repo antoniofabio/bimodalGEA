@@ -1,3 +1,6 @@
+version 0.4-1:
+	* rename 'lowProportion' option to 'lowProp', to avoid dumb name clash
+
 version 0.4:
 	* add 'lowProportion' option to 'bimodalityScores'
 	* fix 'fisherCorrelation': now silently returns 'NA' when fisher.test fails
