@@ -1,3 +1,6 @@
+version 0.5:
+	* add function for bayesian estimation of Rsquare (undocumented)
+
 version 0.4-1:
 	* rename 'lowProportion' option to 'lowProp', to avoid dumb name clash
 
@@ -37,4 +40,3 @@ version 0.2: 1/06/2010
 	  refitting the mixture
 
 version 0.1: 21/05/2010
-
