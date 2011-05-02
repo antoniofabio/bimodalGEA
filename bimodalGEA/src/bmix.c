@@ -43,7 +43,7 @@ static double lf(void* ignore, const gsl_vector* theta) {
   /*PRIOR*/
   if((beta < 0.01) | (beta > 0.99) |
      (fabs(mL) > 10.0) | (fabs(mH) > 10.0) | (mL > mH) |
-     (s < 0.01) | (s > 100.0)) {
+     (s < 0.01) | (s > 10.0)) {
     /* Rprintf("we're out of the distribution domain\n"); */
     return(log(0.0));
   }

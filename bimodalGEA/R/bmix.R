@@ -1,5 +1,5 @@
 bmix <- function(y, n, n.burnin = 0, thin = 1) {
-  y <- y - median(y)
+  y <- (y - median(y))/IQR(y)
   x0 <- with(mixPar(mixFit(y)), c(beta = pro[1],
                                   mL = mean[1],
                                   mH = mean[2],
@@ -8,7 +8,7 @@ bmix <- function(y, n, n.burnin = 0, thin = 1) {
   x0[1] <- reproject(x0[1], 0.1, 0.9)
   x0[2] <- reproject(x0[2], -10, 10)
   x0[3] <- reproject(x0[3], -10, 10)
-  x0[4] <- reproject(x0[4], 0.001, 10000)
+  x0[4] <- reproject(x0[4], 0.01, 10)
   S0 <- diag(c(0.1, 1.0, 1.0, 1.0))
   .C("bmix_init",
      as.double(y),
