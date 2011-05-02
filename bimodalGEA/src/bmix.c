@@ -14,18 +14,18 @@ static gsl_vector* x;
   double beta = gsl_vector_get(theta, 0);	\
   double mL = gsl_vector_get(theta, 1);		\
   double mH = gsl_vector_get(theta, 2);		\
-  double s2 = gsl_vector_get(theta, 3);
+  double s = gsl_vector_get(theta, 3);
 
 static void theta_print(const gsl_vector* theta) {
   THETA_UNPACK;
-  Rprintf("[%.2f; %.2f; %.2f; %.2f]", beta, mL, mH, s2);
+  Rprintf("[%.2f; %.2f; %.2f; %.2f]", beta, mL, mH, s);
 }
 
 static double Rsquare(const gsl_vector* theta) {
   THETA_UNPACK;
   double d = mH - mL;
   double varBetween = beta * (1.0 - beta) * d * d;
-  return varBetween / (varBetween + s2);
+  return varBetween / (varBetween + (s * s));
 }
 
 static double phi(double yi, double m, double s2) {
@@ -39,16 +39,17 @@ static double lf(void* ignore, const gsl_vector* theta) {
   /* Rprintf("..in function 'lf'..\n"); */
   double out = 0.0;
   THETA_UNPACK;
+  double s2 = s * s;
   /*PRIOR*/
   if((beta < 0.01) | (beta > 0.99) |
      (fabs(mL) > 10.0) | (fabs(mH) > 10.0) | (mL > mH) |
-     (s2 < 0.001) | (s2 > 10000.0)) {
+     (s < 0.01) | (s > 100.0)) {
     /* Rprintf("we're out of the distribution domain\n"); */
     return(log(0.0));
   }
   out += log(phi(mL, 0, 100.0));
   out += log(phi(mH, 0, 100.0));
-  out += -11.0 * log(s2);
+  /* out += -11.0 * log(s2); */
   /*LIKELIHOOD*/
   /* Rprintf("computing likelihood\n"); */
   /* theta_print(theta); */
