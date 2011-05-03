@@ -49,7 +49,7 @@ static double lf(void* ignore, const gsl_vector* theta) {
   }
   out += log(phi(mL, 0, 100.0));
   out += log(phi(mH, 0, 100.0));
-  /* out += -11.0 * log(s2); */
+  out += log(2.0) - log(s2 + 4.0) - log(M_PI);
   /*LIKELIHOOD*/
   /* Rprintf("computing likelihood\n"); */
   /* theta_print(theta); */
