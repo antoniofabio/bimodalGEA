@@ -1,4 +1,5 @@
 version 0.5:
+	* add 'mclustPredict' utility function
 	* add function for bayesian estimation of Rsquare (undocumented)
 
 version 0.4-1:
