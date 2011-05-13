@@ -34,6 +34,10 @@ static double phi(double yi, double m, double s2) {
   return exp(- e2) / sqrt(2.0 * M_PI * s2);
 }
 
+static double lcauchy(double s2, double scale) {
+  return log(scale) - log(s2 + scale * scale) - log(M_PI);
+}
+
 static double lf(void* ignore, const gsl_vector* theta) {
   ignore = NULL; /*keep the compiler quiet*/
   /* Rprintf("..in function 'lf'..\n"); */
@@ -49,7 +53,7 @@ static double lf(void* ignore, const gsl_vector* theta) {
   }
   out += log(phi(mL, 0, 100.0));
   out += log(phi(mH, 0, 100.0));
-  out += log(2.0) - log(s2 + 4.0) - log(M_PI);
+  out += lcauchy(s2, 0.1);
   /*LIKELIHOOD*/
   /* Rprintf("computing likelihood\n"); */
   /* theta_print(theta); */
