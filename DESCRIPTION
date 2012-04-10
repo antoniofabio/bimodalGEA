@@ -5,6 +5,6 @@ Author: Antonio, Fabio Di Narzo
 Maintainer: Antonio, Fabio Di Narzo <AntonioFabio.DiNarzo@isb-sib.ch>
 Description: bimodality-based Gene Expression data analysis
 Depends: mclust, Hmisc, dmisc
-License: GPL v3
+License: GPL-3
 LazyLoad: yes
 Version: 0.5
